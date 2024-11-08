@@ -1,0 +1,11 @@
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\bin\Debug\net8.0\Inf03.Solver.DataAccess.deps.json
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\bin\Debug\net8.0\Inf03.Solver.DataAccess.dll
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\bin\Debug\net8.0\Inf03.Solver.DataAccess.pdb
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.DataAccess.AssemblyInfoInputs.cache
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.DataAccess.AssemblyInfo.cs
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.DataAccess.csproj.CoreCompileInputs.cache
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.DataAccess.dll
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\refint\Inf03.Solver.DataAccess.dll
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.DataAccess.pdb
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\ref\Inf03.Solver.DataAccess.dll

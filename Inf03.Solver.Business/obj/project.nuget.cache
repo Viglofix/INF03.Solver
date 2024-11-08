@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "aGpq4gwfwfU=",
+  "success": true,
+  "projectFilePath": "C:\\Programming\\Inf03\\Inf03.Solver\\Inf03.Solver.Business\\Inf03.Solver.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vig\\.nuget\\packages\\selenium.webdriver\\4.26.1\\selenium.webdriver.4.26.1.nupkg.sha512"
+  ],
+  "logs": []
+}

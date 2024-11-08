@@ -1,0 +1,11 @@
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\bin\Debug\net8.0\Inf03.Solver.Library.deps.json
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\bin\Debug\net8.0\Inf03.Solver.Library.dll
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\bin\Debug\net8.0\Inf03.Solver.Library.pdb
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.Library.AssemblyInfoInputs.cache
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.Library.AssemblyInfo.cs
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.Library.csproj.CoreCompileInputs.cache
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.Library.dll
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\refint\Inf03.Solver.Library.dll
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\Inf03.Solver.Library.pdb
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Library\obj\Debug\net8.0\ref\Inf03.Solver.Library.dll
