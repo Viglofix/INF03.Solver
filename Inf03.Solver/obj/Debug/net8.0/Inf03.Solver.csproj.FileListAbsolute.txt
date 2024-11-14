@@ -50,3 +50,6 @@ C:\Programming\Inf03\Inf03.Solver\Inf03.Solver\obj\Debug\net8.0\Inf03.Solver.gen
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver\obj\Debug\net8.0\ref\Inf03.Solver.dll
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver\bin\Debug\net8.0\Inf03.Solver.DataAccess.dll
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver\bin\Debug\net8.0\Inf03.Solver.DataAccess.pdb
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver\bin\Debug\net8.0\Inf03.Solver.Business.dll
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver\bin\Debug\net8.0\Inf03.Solver.Business.pdb
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver\obj\Debug\net8.0\Inf03.Solver.sourcelink.json
