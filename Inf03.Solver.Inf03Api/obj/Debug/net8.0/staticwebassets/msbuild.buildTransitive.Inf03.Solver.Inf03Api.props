@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Inf03.Solver.Inf03Api.props" />
+</Project>
