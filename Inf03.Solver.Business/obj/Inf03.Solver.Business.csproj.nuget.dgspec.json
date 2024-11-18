@@ -54,9 +54,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Selenium.WebDriver": {
+            "Microsoft.Playwright": {
               "target": "Package",
-              "version": "[4.26.1, )"
+              "version": "[1.48.0, )"
             }
           },
           "imports": [

@@ -1,6 +1,3 @@
-C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Business\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
-C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Business\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
-C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Business\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Business\bin\Debug\net8.0\Inf03.Solver.Business.deps.json
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Business\bin\Debug\net8.0\Inf03.Solver.Business.dll
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.Business\bin\Debug\net8.0\Inf03.Solver.Business.pdb
