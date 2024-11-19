@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Inf03.Solver.Inf03Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fcaf8f2d8342a57a477106cf31c36f25d1528ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7efcbfa1259846a49ff64ef714026d0e09033f2a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Inf03.Solver.Inf03Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Inf03.Solver.Inf03Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
