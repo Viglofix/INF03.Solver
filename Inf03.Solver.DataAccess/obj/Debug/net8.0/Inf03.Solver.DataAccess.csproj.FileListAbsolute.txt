@@ -21,3 +21,4 @@ C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\Inf03
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\refint\Inf03.Solver.DataAccess.dll
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\Inf03.Solver.DataAccess.pdb
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\ref\Inf03.Solver.DataAccess.dll
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\Inf03.Solver.DataAccess.csproj.AssemblyReference.cache
