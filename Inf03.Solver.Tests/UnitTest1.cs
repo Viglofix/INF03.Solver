@@ -1,34 +1,40 @@
-using System.Diagnostics;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
-using NUnit.Framework;
+using Inf03.Solver.Business.PlayWrightBusinessLogic;
+using Inf03.Solver.Business.Extensions;
+using Inf03.Solver.DataAccess;
+using Inf03.Solver.DataAccess.Db;
 
 namespace Inf03.Solver.Tests;
 
-[Parallelizable(ParallelScope.Self)]
 [TestFixture]
 public class Tests : PageTest {
 
+    private IFindElement _findElement;
+    private IFoundElementService _foundElementService;
+
     [SetUp]
-    public async Task SetUpBasicTest()
+    public async Task SetUp()
     {
-        Trace.Listeners.Add(new ConsoleTraceListener());
-        await Page.GotoAsync("https://en.wikipedia.org/wiki/Kim_Jong_Un");
-
+        // Arrange
+        await Page.GotoAsync("https://www.praktycznyegzamin.pl/inf03ee09e14/teoria/wszystko/");
+        _findElement = FindElement.CreateElementFinder();
+        _foundElementService = FoundTitleElementService.CreateFoundTitleElementService();
     }
-    [TearDown]
-    public void TearDownBasicTest()
-    {
-        Trace.Flush();
-    }
-
     [Test]
-    public async Task BasicTest()
+    public async Task PassBrowser_ReturnWebElement()
     {
-       Debug.WriteLine("Hello World");
-       var element = await Page.Locator("span.mw-page-title-main").First.InnerHTMLAsync();
-       Debug.WriteLine(element);
+        //Act
+       /*  var elements = await _findElement.FindElementContainerOnPage(Page);
+        var title = await _foundElementService.GetFoundElementContent(elements);
+        foreach(var element in title)
+        {
+            Console.WriteLine(element);
+        } */
+
+        string examDbContextService = await new ExamDbContextService().JsonConnectionStringDeserialize();
+        await TestContext.Out.WriteLineAsync(examDbContextService);
+
+        // Assert
+   //     Assert.IsNotNull(elements);
     }
 }

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inf03.Solver.DataAccess", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inf03.Solver.Inf03Api", "Inf03.Solver.Inf03Api\Inf03.Solver.Inf03Api.csproj", "{A71D5773-C08A-4048-9455-981FA0DA8A9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inf03.Solver.Tests", "Inf03.Solver.Tests\Inf03.Solver.Tests.csproj", "{25CC7A64-FD2E-43BA-9883-E7E52D0AA403}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inf03.Solver.Tests", "Inf03.Solver.Tests\Inf03.Solver.Tests.csproj", "{25CC7A64-FD2E-43BA-9883-E7E52D0AA403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
