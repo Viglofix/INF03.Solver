@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Inf03.Solver.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+384b67526ee40d6b95b602be54f571bbafdf3ecf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7478aefbf0157904ff06131a9c932d15e90f0274")]
 [assembly: System.Reflection.AssemblyProductAttribute("Inf03.Solver.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Inf03.Solver.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

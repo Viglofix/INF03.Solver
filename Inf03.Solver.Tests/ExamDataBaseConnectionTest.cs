@@ -7,19 +7,7 @@ using Inf03.Solver.DataAccess.Db;
 namespace Inf03.Solver.Tests;
 
 [TestFixture]
-public class Tests : PageTest {
-
-    private IFindElement _findElement;
-    private IFoundElementService _foundElementService;
-
-    [SetUp]
-    public async Task SetUp()
-    {
-        // Arrange
-        await Page.GotoAsync("https://www.praktycznyegzamin.pl/inf03ee09e14/teoria/wszystko/");
-        _findElement = FindElement.CreateElementFinder();
-        _foundElementService = FoundTitleElementService.CreateFoundTitleElementService();
-    }
+public class ExamDaaBaseConnectionTest : ExamDataBaseConnectionBaseTest {
     [Test]
     public async Task PassBrowser_ReturnWebElement()
     {

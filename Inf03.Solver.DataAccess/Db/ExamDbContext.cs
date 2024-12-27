@@ -18,5 +18,5 @@ namespace Inf03.Solver.DataAccess.Db;
         optionsBuilder.UseNpgsql(await Service.JsonConnectionStringDeserialize());
         base.OnConfiguring(optionsBuilder);
     }
-    DbSet<ExamModel> exam { get; set; }
+    public virtual DbSet<ExamModel> exam { get; set; }
     }

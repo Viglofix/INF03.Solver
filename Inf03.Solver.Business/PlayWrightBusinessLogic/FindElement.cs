@@ -3,7 +3,7 @@
 namespace Inf03.Solver.Business.PlayWrightBusinessLogic;
     public class FindElement : IFindElement
     {
-    protected FindElement(){}
+    public FindElement(){}
     public async Task<IReadOnlyList<ILocator>> FindElementContainerOnPage(IPage page)
     {
         IReadOnlyList<ILocator> elements = await page.Locator(".question").AllAsync();
@@ -13,9 +13,8 @@ namespace Inf03.Solver.Business.PlayWrightBusinessLogic;
         }
         return elements;
     }
-    public static FindElement CreateElementFinder()
+    /* public static FindElement CreateElementFinder()
     {
         return new FindElement();
-    }
-
+    } */ 
     }

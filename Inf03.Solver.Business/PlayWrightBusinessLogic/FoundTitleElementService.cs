@@ -7,7 +7,7 @@ public class FoundTitleElementService : IFoundElementService
     private const int DistanceFromTheSignGraterThan = 4;
     private const string endIndexContent = "</div>";
     private const char startIndexContent = '>';
-    protected FoundTitleElementService() 
+    public FoundTitleElementService() 
     {
     }
     public async Task<IList<string>> GetFoundElementContent(IReadOnlyList<ILocator> locators)
@@ -25,8 +25,8 @@ public class FoundTitleElementService : IFoundElementService
         return stringsList;
     }
 
-    public static FoundTitleElementService CreateFoundTitleElementService()
+    /* public static FoundTitleElementService CreateFoundTitleElementService()
     {
         return new FoundTitleElementService();
-    }
+    } */
 }
