@@ -6,3 +6,4 @@ namespace Inf03.Solver.DataAccess.Model;
         [JsonPropertyName("ConnectionString")]
         public required ConnectionStringModel ConnectionStringModel { get; set; }
     }
+ 
