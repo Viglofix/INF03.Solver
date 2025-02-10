@@ -2,21 +2,38 @@
 using Inf03.Solver.DataAccess.Model;
 
 namespace Inf03.Solver.DataAccess.Db;
-    public class ExamDbContext : ExamDbOperator
-    { 
-        public ExamDbContext(DbContextOptions options) : base(options) 
+    public class ExamDbContext : DbContext
+    {
+        public ExamDbContext(DbContextOptions<ExamDbContext> options) : base(options) 
         {
-    
+
         }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Inf03QuestionModel>()
+            .HasKey(x => x.Id);
+
+        modelBuilder.Entity<Inf03QuestionModel>()
+            .Property(ExamProperty => ExamProperty.Id)
+            .HasColumnName("id")
+            .HasColumnType("bigint")
+            .IsRequired();
+
+        modelBuilder.Entity<Inf03QuestionModel>()
+            .Property(ExamProperty => ExamProperty.Title)
+            .HasColumnName("title")
+            .HasColumnType("text");
+        modelBuilder.Entity<Inf03QuestionModel>()
+            .Property(ExamProperty => ExamProperty.CorrectAnswer)
+            .HasColumnName("correct_answer")
+            .HasColumnType("text");
+
         base.OnModelCreating(modelBuilder);
     }
-    protected async override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql(await Service.JsonConnectionStringDeserialize());
         base.OnConfiguring(optionsBuilder);
     }
-    public virtual DbSet<ExamModel> exam { get; set; }
+    public virtual DbSet<Inf03QuestionModel> exam { get; set; }
     }

@@ -22,3 +22,5 @@ C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\refin
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\Inf03.Solver.DataAccess.pdb
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\ref\Inf03.Solver.DataAccess.dll
 C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\Inf03.Solver.DataAccess.csproj.AssemblyReference.cache
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\bin\Debug\net8.0\Inf03.Solver.DataAccess.runtimeconfig.json
+C:\Programming\Inf03\Inf03.Solver\Inf03.Solver.DataAccess\obj\Debug\net8.0\Inf03.Solver.DataAccess.genruntimeconfig.cache
