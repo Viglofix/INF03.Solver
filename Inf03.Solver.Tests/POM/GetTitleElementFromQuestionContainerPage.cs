@@ -20,7 +20,7 @@ public class GetTitleElementFromQuestionContainerPage
 
         _page = page;
         _findElement = new FindElement();
-        _foundElementService = new FoundTitleElementService();
+        _foundElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan());
         _examDbContext = new ExamDbContext(new DbContextOptionsBuilder<ExamDbContext>().UseNpgsql(ExamDbContextService.CreateExamDbContextService().JsonConnectionStringDeserialize()).Options);
         _dbContextOperation = new TitleDbContextOperation(_findElement,_foundElementService, _examDbContext);
     }
