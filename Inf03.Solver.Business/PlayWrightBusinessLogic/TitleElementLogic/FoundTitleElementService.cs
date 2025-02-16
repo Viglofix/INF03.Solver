@@ -5,12 +5,10 @@ namespace Inf03.Solver.Business.PlayWrightBusinessLogic.TitleElementLogic;
 public class FoundTitleElementService : IFoundTitleElementService
 {
     private readonly (string, string) _indexContent = ("<div class=\"title\">", "</div>");
-    private readonly int _distanceFromTheSignGraterThanOneDigit = 3;
-    private readonly int _distanceFromTheSignGraterThanTwoDigit = 4;
-    private readonly int _distanceFromTheSignGraterThanThreeDigit = 5;
-    private readonly int _distanceFromTheSignGraterThanFourDigit = 6;
-    public FoundTitleElementService()
+    private readonly DistanceFromTheSignGraterThan _distanceFromTheSignGraterThan;
+    public FoundTitleElementService(DistanceFromTheSignGraterThan distanceFromTheSignGraterThan)
     {
+        _distanceFromTheSignGraterThan = distanceFromTheSignGraterThan;
     }
     public async IAsyncEnumerable<string> GetFoundElementContent(IReadOnlyList<ILocator> locators)
     {
@@ -23,19 +21,19 @@ public class FoundTitleElementService : IFoundTitleElementService
 
             if (index < 10)
             {
-                startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThanOneDigit;
+                startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThan._distanceFromTheSignGraterThanOneDigit;
             }
             else if(index > 10 && index < 100)
             {
-                startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThanTwoDigit;
+                startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThan._distanceFromTheSignGraterThanTwoDigit;
             }
             else if(index > 100 && index < 1000)
             {
-                startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThanThreeDigit;
+                startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThan._distanceFromTheSignGraterThanThreeDigit;
             }
             else
             {
-                startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThanFourDigit;
+                startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThan._distanceFromTheSignGraterThanFourDigit;
             }
 
             int endIndex = title.IndexOf(_indexContent.Item2);

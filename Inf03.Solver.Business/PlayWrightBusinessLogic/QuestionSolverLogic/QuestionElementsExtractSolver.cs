@@ -5,18 +5,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Playwright;
 
 namespace Inf03.Solver.Business.PlayWrightBusinessLogic.QuestionSolverLogic;
-public class QuestionSolver : IQuestionSolver
+public class QuestionElementsExtractSolver : IQuestionElementsExtractSolver
 {
     private readonly IFindElement _findElement;
     private readonly IFoundTitleElementService _foundTitleElementService;
     private readonly ExamDbContext _examDbContext;
-    public QuestionSolver(IFoundTitleElementService foundTitleElementService,IFindElement findElement,ExamDbContext examDbContext)
+    public QuestionElementsExtractSolver(IFoundTitleElementService foundTitleElementService,IFindElement findElement,ExamDbContext examDbContext)
     {
         _foundTitleElementService = foundTitleElementService;
         _findElement = findElement;
         _examDbContext = examDbContext;
     }
-    public async IAsyncEnumerable<string> Operation(IPage page)
+    public async IAsyncEnumerable<(string,string)> ExtractValuesFromQuestionContainer(IPage page)
     {
         var container = await _findElement.FindElementContainerOnPage(page);
         var titleFromDbContext = await _examDbContext.exam.ToListAsync();
@@ -29,7 +29,7 @@ public class QuestionSolver : IQuestionSolver
             {
                 if (element2!.Contains(dbElement.Title!))
                 {
-                    yield return dbElement.Title!;
+                    yield return (dbElement.Title!,dbElement.CorrectAnswer!);
                 }
             }
         }

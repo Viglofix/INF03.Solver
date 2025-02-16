@@ -32,6 +32,8 @@ namespace Inf03.Solver.Business.PlayWrightBusinessLogic.DbContextLogic
 
                 // Update Correct Answer column in exam table 
 
+
+                // Tutaj sie cos correc_answer pojebał i trza naprawić
                 List<string> values = new List<string>();
                 await foreach(var item in _foundElementService.GetFoundElementContent(container))
                 {

@@ -14,6 +14,9 @@ namespace Inf03.Solver.Tests;
         [Test]
         public async Task Dispaly_MatchedData_FromDataBase_And_Page()
         {
+            var element = Page.GetByLabel("Zgadzam się");
+            await element.ClickAsync();
             await getQuestionSolverPage.Dispaly_MatchedData_FromDataBase_And_Page();
+            await getQuestionSolverPage.Solve_Quiz_Automation();
         }
     }
