@@ -10,8 +10,6 @@ namespace Inf03.Solver.Business.PlayWrightBusinessLogic.DbContextLogic
 {
     public class CorrectAnswerDbContextOperation : IDbContextOperation
     {
-        private const int indexDefaultValue = 0;
-
         private readonly IFindElement _findElement;
         private readonly IFoundCorrectAnswerElementService _foundElementService;
         private readonly ExamDbContext _examDbContext;
@@ -28,19 +26,25 @@ namespace Inf03.Solver.Business.PlayWrightBusinessLogic.DbContextLogic
             try
             {
                 var container = await _findElement.FindElementContainerOnPage(page);
-                int index = indexDefaultValue;
+                int index = 1;
+                int indexDic = 1;
 
                 // Update Correct Answer column in exam table 
 
 
                 // Tutaj sie cos correc_answer pojebał i trza naprawić
-                List<string> values = new List<string>();
-                await foreach(var item in _foundElementService.GetFoundElementContent(container))
+                Dictionary<int, string> values = new();
+                await foreach (var item in _foundElementService.GetFoundElementContent(container))
                 {
-                    values.Add(item);
+                    values[indexDic++] = item;
                 }
 
-                await _examDbContext.exam.ForEachAsync(x => x.CorrectAnswer = HttpUtility.HtmlDecode(values[index++]));
+                var list = await _examDbContext.exam
+                    .OrderBy(x=>x.Id)
+                    .ToListAsync();
+
+                list.ForEach(x => x.CorrectAnswer = HttpUtility.HtmlDecode(values[index++]));
+
                 await _examDbContext.SaveChangesAsync();
 
                 if (_examDbContext is null)

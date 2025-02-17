@@ -25,7 +25,7 @@ public class GetQuestionSolverPage
 
     public async Task Dispaly_MatchedData_FromDataBase_And_Page()
     {
-        await foreach(var (titleElement,correctAnswerElement) in _questionSolver.ExtractValuesFromQuestionContainer(_page))
+        foreach(var titleElement in await _questionSolver.ExtractValuesFromQuestionContainer(_page))
         {
            await TestContext.Out.WriteLineAsync(titleElement);
            Assert.NotNull(titleElement);
