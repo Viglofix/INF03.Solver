@@ -23,11 +23,11 @@ public class FoundTitleElementService : IFoundTitleElementService
             {
                 startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThan._distanceFromTheSignGraterThanOneDigit;
             }
-            else if(index > 10 && index < 100)
+            else if(index >= 10 && index < 100)
             {
                 startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThan._distanceFromTheSignGraterThanTwoDigit;
             }
-            else if(index > 100 && index < 1000)
+            else if(index >= 100 && index < 1000)
             {
                 startIndex = title.IndexOf(_indexContent.Item1) + _indexContent.Item1.Length + _distanceFromTheSignGraterThan._distanceFromTheSignGraterThanThreeDigit;
             }

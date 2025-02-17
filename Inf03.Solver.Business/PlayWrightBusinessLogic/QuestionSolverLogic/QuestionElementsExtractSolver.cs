@@ -3,6 +3,7 @@ using Inf03.Solver.Business.PlayWrightBusinessLogic.TitleElementLogic;
 using Inf03.Solver.DataAccess.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Playwright;
+using System.Collections;
 
 namespace Inf03.Solver.Business.PlayWrightBusinessLogic.QuestionSolverLogic;
 public class QuestionElementsExtractSolver : IQuestionElementsExtractSolver
@@ -16,12 +17,14 @@ public class QuestionElementsExtractSolver : IQuestionElementsExtractSolver
         _findElement = findElement;
         _examDbContext = examDbContext;
     }
-    public async IAsyncEnumerable<(string,string)> ExtractValuesFromQuestionContainer(IPage page)
+    public async Task<List<string>> ExtractValuesFromQuestionContainer(IPage page)
     {
         var container = await _findElement.FindElementContainerOnPage(page);
         var titleFromDbContext = await _examDbContext.exam.ToListAsync();
 
         // yeild async appplied. this approach repleaces templList method
+
+        List<string> list = new List<string>();
 
         await foreach(var element2 in _foundTitleElementService.GetFoundElementContent(container))
         {
@@ -29,9 +32,10 @@ public class QuestionElementsExtractSolver : IQuestionElementsExtractSolver
             {
                 if (element2!.Contains(dbElement.Title!))
                 {
-                    yield return (dbElement.Title!,dbElement.CorrectAnswer!);
+                    list.Add(dbElement.CorrectAnswer!);
                 }
             }
         }
+        return list;
     }
 }
