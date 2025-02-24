@@ -3,8 +3,6 @@ using Inf03.Solver.Business.PlayWrightBusinessLogic.TitleElementLogic;
 using Inf03.Solver.DataAccess.Db;
 using Microsoft.Playwright;
 
-using Inf03.Solver.Business.PlayWrightBusinessLogic.CorrectAnswerElementLogic;
-
 namespace Inf03.Solver.Business.PlayWrightBusinessLogic.QuestionSolverLogic;
     public class QuestionElementsBotSolver 
     {
@@ -23,16 +21,15 @@ namespace Inf03.Solver.Business.PlayWrightBusinessLogic.QuestionSolverLogic;
         public async Task CompleteTheQuestions(IPage page)
         {
             int index = 0;
-            List<string> list = await _questionElementsExtractSolver.ExtractValuesFromQuestionContainer(page);
-            foreach (var correctAnswerElement in list)
+            await foreach (var correctAnswerElement in _questionElementsExtractSolver.ExtractValuesFromQuestionContainer(page))
             {
                ILocator question = page.Locator(".question").Nth(index++);
                await question.GetByLabel(correctAnswerElement).First.ClickAsync();
             }
-            page.GetByRole(AriaRole.Button, new() { Name = "Sprawdź odpowiedzi!" });
+            await page.GetByRole(AriaRole.Button, new() { Name = "Sprawdź odpowiedzi!" }).ClickAsync();
             await page.ScreenshotAsync(new()
             {
              Path = "screenshot.png"
             });
-    }
+        }
     }

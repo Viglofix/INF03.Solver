@@ -17,6 +17,7 @@ internal class ExamTitleQuestionContainerTest : StartUpExamDataBaseInitializatio
     [Test]
     public async Task AddTitleElemntsToDataBase_DisplayTitles()
     {
-        await getElementFromContainerPage.AddTitleElemntsToDataBase_DisplayTitles();
+        await getElementFromContainerPage.AddDataToDatabase();
+        await getElementFromContainerPage.GetFoundDataFromWeb();
     }
 }

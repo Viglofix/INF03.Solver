@@ -56,7 +56,11 @@
           "dependencies": {
             "Microsoft.Playwright": {
               "target": "Package",
-              "version": "[1.48.0, )"
+              "version": "[1.50.0, )"
+            },
+            "System.Linq.Async": {
+              "target": "Package",
+              "version": "[6.0.1, )"
             }
           },
           "imports": [

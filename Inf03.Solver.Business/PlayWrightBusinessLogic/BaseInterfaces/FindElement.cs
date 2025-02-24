@@ -3,7 +3,7 @@
 namespace Inf03.Solver.Business.PlayWrightBusinessLogic.BaseInterfaces;
 public class FindElement : IFindElement
 {
-    private readonly string _locatorContainerName = ".question";
+    private const string _locatorContainerName = ".question";
     public FindElement() { }
 
     public async Task<IReadOnlyList<ILocator>> FindElementContainerOnPage(IPage page)

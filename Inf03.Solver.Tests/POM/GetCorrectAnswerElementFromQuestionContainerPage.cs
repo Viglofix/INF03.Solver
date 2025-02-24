@@ -11,7 +11,7 @@ public class GetCorrectAnswerElementFromQuestionContainerPage
     private readonly IPage _page;
     private readonly IFindElement _findElement;
     private readonly IFoundCorrectAnswerElementService _foundElementService;
-    private readonly IDbContextOperation _dbContextOperation;
+    private readonly IDbContextAddToDbOperation _dbContextAddToDbOperation;
     private readonly ExamDbContext _examDbContext;
 
     public GetCorrectAnswerElementFromQuestionContainerPage(IPage page)
@@ -20,20 +20,14 @@ public class GetCorrectAnswerElementFromQuestionContainerPage
 
         _page = page;
         _findElement = new FindElement();
-        _foundElementService = new FoundCorrectAnswerElementService();
+        _foundElementService = new FoundCorrectAnswerElementService(_findElement);
         _examDbContext = new ExamDbContext(new DbContextOptionsBuilder<ExamDbContext>().UseNpgsql(ExamDbContextService.CreateExamDbContextService().JsonConnectionStringDeserialize()).Options);
-        _dbContextOperation = new CorrectAnswerDbContextOperation(_findElement, _foundElementService, _examDbContext);
+        _dbContextAddToDbOperation = new CorrectAnswerDbContextOperation(_findElement, _foundElementService, _examDbContext);
     }
 
-    public async Task AddCorrectAnswerElemntsToDataBase_DisplayCorrectAnswers()
+    public async Task AddDataToDatabase()
     {
         //Act
-        var obj = await _dbContextOperation.AddDataToDatabase(_page);
-        foreach (var element in obj)
-        {
-            await TestContext.Out.WriteLineAsync(element.CorrectAnswer);
-        }
-        // Assert
-        Assert.IsNotNull(obj);
+        await _dbContextAddToDbOperation.AddDataToDatabase(_page);
     }
 }
