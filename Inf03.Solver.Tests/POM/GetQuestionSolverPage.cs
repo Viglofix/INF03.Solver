@@ -18,14 +18,14 @@ public class GetQuestionSolverPage
     {
         _page = page;
         _findElement = new FindElement();
-        _foundTitleElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan());
+        _foundTitleElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan(),_findElement);
         _examDbContext = new ExamDbContext(new DbContextOptionsBuilder<ExamDbContext>().UseNpgsql(ExamDbContextService.CreateExamDbContextService().JsonConnectionStringDeserialize()).Options);
         _questionSolver = new QuestionElementsExtractSolver(_foundTitleElementService,_findElement,_examDbContext);
     }
 
     public async Task Dispaly_MatchedData_FromDataBase_And_Page()
     {
-        foreach(var titleElement in await _questionSolver.ExtractValuesFromQuestionContainer(_page))
+        await foreach(var titleElement in _questionSolver.ExtractValuesFromQuestionContainer(_page))
         {
            await TestContext.Out.WriteLineAsync(titleElement);
            Assert.NotNull(titleElement);

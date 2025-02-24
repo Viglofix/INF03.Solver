@@ -3,7 +3,7 @@ using Inf03.Solver.Business.PlayWrightBusinessLogic.TitleElementLogic;
 using Inf03.Solver.DataAccess.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Playwright;
-using System.Collections;
+using System.Diagnostics;
 
 namespace Inf03.Solver.Business.PlayWrightBusinessLogic.QuestionSolverLogic;
 public class QuestionElementsExtractSolver : IQuestionElementsExtractSolver
@@ -17,25 +17,28 @@ public class QuestionElementsExtractSolver : IQuestionElementsExtractSolver
         _findElement = findElement;
         _examDbContext = examDbContext;
     }
-    public async Task<List<string>> ExtractValuesFromQuestionContainer(IPage page)
+    public async IAsyncEnumerable<string> ExtractValuesFromQuestionContainer(IPage page)
     {
-        var container = await _findElement.FindElementContainerOnPage(page);
-        var titleFromDbContext = await _examDbContext.exam.ToListAsync();
-
         // yeild async appplied. this approach repleaces templList method
 
-        List<string> list = new List<string>();
-
-        await foreach(var element2 in _foundTitleElementService.GetFoundElementContent(container))
+        await foreach(var element2 in _foundTitleElementService.GetFoundElementContent(page))
         {
-            foreach(var dbElement in titleFromDbContext)
+            int index = 0;
+            foreach(var dbElement in await _examDbContext.exam.ToListAsync())
             {
-                if (element2!.Contains(dbElement.Title!))
+                if (element2.Equals(dbElement.Title!))
                 {
-                    list.Add(dbElement.CorrectAnswer!);
+                    yield return dbElement.CorrectAnswer!;
+                    break;
+                }
+                index++;
+                if (index == 1119)
+                {
+                    Debug.WriteLine(dbElement.CorrectAnswer);
+                    Debug.WriteLine(element2);
+                    Debug.WriteLine(dbElement.Title);
                 }
             }
         }
-        return list;
     }
 }

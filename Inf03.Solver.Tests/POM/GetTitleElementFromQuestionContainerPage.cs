@@ -11,29 +11,28 @@ public class GetTitleElementFromQuestionContainerPage
     private readonly IPage _page;
     private readonly IFindElement _findElement;
     private readonly IFoundTitleElementService _foundElementService;
-    private readonly IDbContextOperation _dbContextOperation;
+    private readonly IDbContextTitleOperation _dbContextTitleOperation;
     private readonly ExamDbContext _examDbContext;
 
     public GetTitleElementFromQuestionContainerPage(IPage page)
     {
         // Arrange
-
         _page = page;
         _findElement = new FindElement();
-        _foundElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan());
+        _foundElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan(),_findElement);
         _examDbContext = new ExamDbContext(new DbContextOptionsBuilder<ExamDbContext>().UseNpgsql(ExamDbContextService.CreateExamDbContextService().JsonConnectionStringDeserialize()).Options);
-        _dbContextOperation = new TitleDbContextOperation(_findElement,_foundElementService, _examDbContext);
+        _dbContextTitleOperation = new TitleDbContextOperation(_findElement,_foundElementService, _examDbContext);
     }
 
-    public async Task AddTitleElemntsToDataBase_DisplayTitles()
+    public async Task AddDataToDatabase()
     {
-        //Act
-        var obj = await _dbContextOperation.AddDataToDatabase(_page);
-        foreach (var element in obj)
+        await _dbContextTitleOperation.AddDataToDatabase(_page);
+    }
+    public async Task GetFoundDataFromWeb()
+    {
+        await foreach(var element in _dbContextTitleOperation.GetFoundDataFromWeb(_page))
         {
-            await TestContext.Out.WriteLineAsync(element.Title);
+           await TestContext.Out.WriteLineAsync(element);
         }
-        // Assert
-        Assert.IsNotNull(obj);
     }
 }

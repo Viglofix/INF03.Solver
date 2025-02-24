@@ -1,19 +1,23 @@
 ﻿using Inf03.Solver.Business.Extensions;
+using Inf03.Solver.Business.PlayWrightBusinessLogic.BaseInterfaces;
 using Microsoft.Playwright;
+using System.Web;
 
 namespace Inf03.Solver.Business.PlayWrightBusinessLogic.TitleElementLogic;
 public class FoundTitleElementService : IFoundTitleElementService
 {
     private readonly (string, string) _indexContent = ("<div class=\"title\">", "</div>");
     private readonly DistanceFromTheSignGraterThan _distanceFromTheSignGraterThan;
-    public FoundTitleElementService(DistanceFromTheSignGraterThan distanceFromTheSignGraterThan)
+    private readonly IFindElement _findElement;
+    public FoundTitleElementService(DistanceFromTheSignGraterThan distanceFromTheSignGraterThan,IFindElement findElement)
     {
         _distanceFromTheSignGraterThan = distanceFromTheSignGraterThan;
+        _findElement = findElement;
     }
-    public async IAsyncEnumerable<string> GetFoundElementContent(IReadOnlyList<ILocator> locators)
+    public async IAsyncEnumerable<string> GetFoundElementContent(IPage page)
     {
         int index = 0;
-        foreach (var element in locators)
+        foreach (var element in await _findElement.FindElementContainerOnPage(page))
         {
             index++;
             int startIndex = 0;
@@ -38,8 +42,9 @@ public class FoundTitleElementService : IFoundTitleElementService
 
             int endIndex = title.IndexOf(_indexContent.Item2);
             var titleTrimed = title.Substring2(startIndex, endIndex);
+            var titleTrimedHtmlDecoded = HttpUtility.HtmlDecode(titleTrimed);
 
-            yield return titleTrimed;
+            yield return titleTrimedHtmlDecoded;
         }
     }
 }

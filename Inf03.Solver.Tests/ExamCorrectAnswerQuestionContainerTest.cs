@@ -17,6 +17,6 @@ internal class ExamCorrectAnswerQuestionContainerTest : StartUpExamDataBaseIniti
     [Test]
     public async Task AddCorrectAnswerElemntsToDataBase_DisplayCorrectAnswer()
     {
-        await getElementFromContainerPage.AddCorrectAnswerElemntsToDataBase_DisplayCorrectAnswers();
+        await getElementFromContainerPage.AddDataToDatabase();
     }
 }
