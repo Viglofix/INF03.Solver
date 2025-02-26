@@ -1,4 +1,5 @@
 ﻿using Inf03.Solver.Business.PlayWrightBusinessLogic.BaseInterfaces;
+using Inf03.Solver.Business.PlayWrightBusinessLogic.Helper;
 using Inf03.Solver.Business.PlayWrightBusinessLogic.QuestionSolverLogic;
 using Inf03.Solver.Business.PlayWrightBusinessLogic.TitleElementLogic;
 using Inf03.Solver.DataAccess.Db;
@@ -18,7 +19,11 @@ public class GetQuestionSolverPage
     {
         _page = page;
         _findElement = new FindElement();
-        _foundTitleElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan(),_findElement);
+        _foundTitleElementService = new FoundTitleElementQuestionService(new DistanceFromTheSignGraterThan(),_findElement,new List<ISpecification>()
+        {
+            new IndexSmallerThanTenSpecification(),
+            new IndexGraterOrEqualThanTenAndSmallerThanHundredSpecification()
+        });
         _examDbContext = new ExamDbContext(new DbContextOptionsBuilder<ExamDbContext>().UseNpgsql(ExamDbContextService.CreateExamDbContextService().JsonConnectionStringDeserialize()).Options);
         _questionSolver = new QuestionElementsExtractSolver(_foundTitleElementService,_findElement,_examDbContext);
     }
