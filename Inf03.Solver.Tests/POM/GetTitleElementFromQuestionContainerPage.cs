@@ -1,5 +1,6 @@
 ﻿using Inf03.Solver.Business.PlayWrightBusinessLogic.BaseInterfaces;
 using Inf03.Solver.Business.PlayWrightBusinessLogic.DbContextLogic;
+using Inf03.Solver.Business.PlayWrightBusinessLogic.Helper;
 using Inf03.Solver.Business.PlayWrightBusinessLogic.TitleElementLogic;
 using Inf03.Solver.DataAccess.Db;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,13 @@ public class GetTitleElementFromQuestionContainerPage
         // Arrange
         _page = page;
         _findElement = new FindElement();
-        _foundElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan(),_findElement);
+        _foundElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan(), _findElement,new List<ISpecification>()
+        {
+            new IndexSmallerThanTenSpecification(),
+            new IndexGraterOrEqualThanTenAndSmallerThanHundredSpecification(),
+            new IndexGraterOrEqualThanHundredAndSmallerThanThousandSpecification(),
+            new IndexGraterOrEqualThanThousandSpecification()
+        });
         _examDbContext = new ExamDbContext(new DbContextOptionsBuilder<ExamDbContext>().UseNpgsql(ExamDbContextService.CreateExamDbContextService().JsonConnectionStringDeserialize()).Options);
         _dbContextTitleOperation = new TitleDbContextOperation(_findElement,_foundElementService, _examDbContext);
     }
