@@ -9,6 +9,9 @@ namespace Inf03.Solver.Business.PlayWrightBusinessLogic.DbContextLogic;
     {
         private readonly IFoundCorrectAnswerElementService _foundElementService;
         private readonly ExamDbContext _examDbContext;
+        private const string? _nullReferenceExceptionMessage = "Null reference in the database definition has been found";
+        private const string? _indexOutOfRangeExceptionMessage = "Please set the value of index variable to 0 otherwise the index fetch up out of context ||";
+        private const int _defaultIndexValue = 0;
         public CorrectAnswerDbContextOperation(IFindElement findElement, IFoundCorrectAnswerElementService foundElementService, ExamDbContext examDbContext)
         {
             _foundElementService = foundElementService;
@@ -21,20 +24,20 @@ namespace Inf03.Solver.Business.PlayWrightBusinessLogic.DbContextLogic;
         {
             if (_examDbContext is null)
             {
-                throw new NullReferenceException("Null reference in the database definition has been found");
+                throw new NullReferenceException(_nullReferenceExceptionMessage);
             }
             List<string> listOfCorrectAnswersFromPage = await _foundElementService.GetFoundElementContent(page).ToListAsync();
             var listOfCorrectAnswers = await _examDbContext.exam.
                      OrderBy(x => x.Id)
                      .ToListAsync();
 
-            int index = 0; 
+            int index = _defaultIndexValue; 
             listOfCorrectAnswers.ForEach(x => x.CorrectAnswer = listOfCorrectAnswersFromPage[index++]);
             await _examDbContext.SaveChangesAsync();
         }
         catch (IndexOutOfRangeException ex)
         {
-            throw new Exception("Please set the value of index variable to 0 otherwise the index fetch up out of context ||" + ex.Message);
+            throw new Exception(_indexOutOfRangeExceptionMessage + ex.Message);
         }
     }
     }

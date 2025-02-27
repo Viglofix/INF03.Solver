@@ -10,13 +10,13 @@ public class FoundTitleElementService : IFoundTitleElementService
     private readonly (string, string) _indexContent = ("<div class=\"title\">", "</div>");
     private readonly DistanceFromTheSignGraterThan _distanceFromTheSignGraterThan;
     private readonly IFindElement _findElement;
-    private readonly IList<ISpecification> _specifications;
+    private readonly IList<ISpecificationAction<int>> _specifications;
     private const int _indexSmallerThanTen = 0;
     private const int _indexGraterThanTenOrEqualAndSmallerThanHoundred = 1;
     private const int _indexGraterThanHoundredOrEqualAndSmallerThanThousand = 2;
     private const int _indexGraterThanThousand = 3;
     private const int _defaultIndexValue = 0;
-    public FoundTitleElementService(DistanceFromTheSignGraterThan distanceFromTheSignGraterThan,IFindElement findElement, IList<ISpecification> specifications)
+    public FoundTitleElementService(DistanceFromTheSignGraterThan distanceFromTheSignGraterThan,IFindElement findElement, IList<ISpecificationAction<int>> specifications)
     {
         _distanceFromTheSignGraterThan = distanceFromTheSignGraterThan;
         _findElement = findElement;

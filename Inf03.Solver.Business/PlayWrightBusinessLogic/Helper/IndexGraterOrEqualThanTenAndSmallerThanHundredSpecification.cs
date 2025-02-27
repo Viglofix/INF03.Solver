@@ -1,8 +1,10 @@
 ﻿namespace Inf03.Solver.Business.PlayWrightBusinessLogic.Helper;
-    public class IndexGraterOrEqualThanTenAndSmallerThanHundredSpecification : ISpecification
-    {
+public class IndexGraterOrEqualThanTenAndSmallerThanHundredSpecification : ISpecificationAction<int>
+{
+    private const int _graterOrEqualTen = 10;
+    private const int _smallerThanHundred = 100;
     private bool IsSatisfiedBy(int index) =>
-        index >= 10 && index < 100;
+        index >= _graterOrEqualTen && index < _smallerThanHundred;
     public void OperationAfterAssertion(int index,Action action)
     {
         if (IsSatisfiedBy(index))
@@ -10,5 +12,5 @@
             action();
         }
     }
-    }
+}
 
