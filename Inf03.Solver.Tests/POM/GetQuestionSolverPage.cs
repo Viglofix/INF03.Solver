@@ -19,7 +19,7 @@ public class GetQuestionSolverPage
     {
         _page = page;
         _findElement = new FindElement();
-        _foundTitleElementService = new FoundTitleElementQuestionService(new DistanceFromTheSignGraterThan(),_findElement,new List<ISpecification>()
+        _foundTitleElementService = new FoundTitleElementQuestionService(new DistanceFromTheSignGraterThan(),_findElement,new List<ISpecificationAction<int>>()
         {
             new IndexSmallerThanTenSpecification(),
             new IndexGraterOrEqualThanTenAndSmallerThanHundredSpecification()

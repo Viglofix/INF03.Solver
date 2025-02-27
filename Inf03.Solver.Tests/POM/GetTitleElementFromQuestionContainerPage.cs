@@ -20,7 +20,7 @@ public class GetTitleElementFromQuestionContainerPage
         // Arrange
         _page = page;
         _findElement = new FindElement();
-        _foundElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan(), _findElement,new List<ISpecification>()
+        _foundElementService = new FoundTitleElementService(new DistanceFromTheSignGraterThan(), _findElement,new List<ISpecificationAction<int>>()
         {
             new IndexSmallerThanTenSpecification(),
             new IndexGraterOrEqualThanTenAndSmallerThanHundredSpecification(),
